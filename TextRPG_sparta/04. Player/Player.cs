@@ -66,12 +66,18 @@ namespace TextRPG_sparta
 
         public void ShowInfo()
         {
+            int itemHP = 0;
+            int itemSTR = 0;
+            int itemDEF = 0;
+
+            inventory.GetTotalEquippedStats(out itemHP, out itemSTR, out itemDEF);
+
             Console.WriteLine(
                 $"Lv. {level}      \n" +
                 $"{name} ( {job} )\n" +
-                $"공격력 : {STR}\n" +
-                $"방어력 : {DEF}\n" +
-                $"체 력 : {HP}\n" +
+                $"공격력 : {STR} (+{itemSTR})\n" +
+                $"방어력 : {DEF} (+{itemDEF})\n" +
+                $"체 력 : {HP} (+{itemHP})\n" +
                 $"Gold : {Gold} G\n"
                 );
         }

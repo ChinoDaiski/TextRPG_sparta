@@ -9,6 +9,7 @@
             //==============================================================================================================================
             GameManager.Instance.PushScene(new TownScene());    // 마을 생성
             GameManager.Instance.mainPlayer = new Player("성욱", JOB.WARRIOR);    // 플레이어 초기화
+            GameManager.Instance.mainPlayer.Gold += 100000;
 
             // 상점에 아이템 추가
             GameManager.Instance.AddItem(new Item("수련자 갑옷     ", 1000, "수련에 도움을 주는 갑옷입니다.", 0, 0, 5));

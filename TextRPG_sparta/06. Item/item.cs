@@ -12,7 +12,7 @@ namespace TextRPG_sparta
         public int Price { get; set; }
         public string Info { get; set; }
 
-        private bool bEquipment = false;
+        public bool Equipment { get; set; }
 
 
         public int HP { get; set; }
@@ -29,14 +29,16 @@ namespace TextRPG_sparta
             this.HP = HP;
             this.STR = STR;
             this.DEF = DEF;
+
+            Equipment = false;
         }
 
         public void Equip()
         {
-            bEquipment = !bEquipment;
+            Equipment = !Equipment;
         }
 
-        public string ShowInfo()
+        public string GetInfo()
         {
             string info = $"{Name} |\t";
 

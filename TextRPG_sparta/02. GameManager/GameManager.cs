@@ -48,7 +48,10 @@ namespace TextRPG_sparta
         {
             shop.ShowItemsBuying();
         }
-
+        public bool BuyItem(int index)
+        {
+            return shop.BuyItem(mainPlayer, index);
+        }
 
         //========================================================================
         // 씬 매니저 관련

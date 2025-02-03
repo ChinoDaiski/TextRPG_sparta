@@ -26,7 +26,7 @@ namespace TextRPG_sparta
         {
             foreach (var item in ItemsForSale)
             {
-                Console.WriteLine(item.ShowInfo());
+                Console.WriteLine(item.GetInfo());
             }
         }
         public void ShowItemsBuying()
@@ -34,20 +34,23 @@ namespace TextRPG_sparta
             int index = 1;
             foreach (var item in ItemsForSale)
             {
-                Console.WriteLine($"- {index++}. " + item.ShowInfo());
+                Console.WriteLine($"- {index++}. " + item.GetInfo());
             }
         }
 
         // 아이템 구매
-        public bool BuyItem(Player player, Item item)
+        public bool BuyItem(Player player, int index)
         {
-            if (ItemsForSale.Contains(item))
+            if (0 < index && index <= ItemsForSale.Count)
             {
-                if (player.Gold >= item.Price)
+                Item selectItem = ItemsForSale[index - 1];
+
+                if (player.Gold >= selectItem.Price)
                 {
-                    player.Gold -= item.Price;  // 플레이어의 골드 차감
-                    player.inventory.AddItem(item);  // 인벤토리에 아이템 추가
-                    Console.WriteLine($"{item.Name}을(를) 구입했습니다.");
+                    player.Gold -= selectItem.Price;  // 플레이어의 골드 차감
+                    player.inventory.AddItem(selectItem);  // 인벤토리에 아이템 추가
+                    ItemsForSale.Remove(selectItem);    // 상점에서 아이템 제거
+                    Console.WriteLine($"{selectItem.Name}을(를) 구입했습니다.");
                     return true;
                 }
                 else

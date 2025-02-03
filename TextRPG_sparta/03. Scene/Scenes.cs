@@ -103,11 +103,16 @@ namespace TextRPG_sparta
             Console.WriteLine(
                 "인벤토리\n" +
                 "보유 중인 아이템을 관리할 수 있습니다.\n\n" +
-                "[아이템 목록]\n\n" +
-                "1. 장착 관리\n" +
+                "[아이템 목록]\n"
+                );
+
+            GameManager.Instance.mainPlayer.inventory.ShowInfo();
+
+            Console.WriteLine(
+                "\n1. 장착 관리\n" +
                 "0. 나가기\n\n" +
                 "원하시는 행동을 입력해주세요."
-                );
+            );
         }
         public void Update()
         {
@@ -141,14 +146,18 @@ namespace TextRPG_sparta
         {
             Console.WriteLine(
                 "인벤토리 - 장착 관리\n" +
-                "보유 중인 아이템을 관리할 수 있습니다.\n\n" +
-                "[아이템 목록]\n" +
-                "- 1 무쇠갑옷      | 방어력 +5 | 무쇠로 만들어져 튼튼한 갑옷입니다.\n" +
-                "- 2 스파르타의 창  | 공격력 +7 | 스파르타의 전사들이 사용했다는 전설의 창입니다.\n" +
-                "- 3 낡은 검         | 공격력 +2 | 쉽게 볼 수 있는 낡은 검 입니다.\n\n" +
-                "0. 나가기\n\n" +
+                "보유 중인 아이템을 장착할 수 있습니다. \n장착을 원하시는 아이템의 번호를 선택하세요.\n\n" +
+                "[아이템 목록]\n"
+                );
+
+            GameManager.Instance.mainPlayer.inventory.ShowEquipmentInfo();
+
+
+            Console.WriteLine( 
+                 "\n0. 나가기\n\n" +
                 "원하시는 행동을 입력해주세요."
                 );
+
         }
         public void Update()
         {
@@ -159,19 +168,15 @@ namespace TextRPG_sparta
                 return;
             }
 
-            switch (select)
+            if(select == 0)
             {
-                case 0:
-                    // town Scene으로 이동
-                    GameManager.Instance.PopScene();
-                    break;
-                case 1:
-                case 2:
-                case 3:
-                    break;
-                default:
+                // town Scene으로 이동
+                GameManager.Instance.PopScene();
+            }
+            else
+            {
+                if (!GameManager.Instance.mainPlayer.inventory.Equip(select))
                     HandleError.PrintError();
-                    break;
             }
         }
     }
@@ -246,22 +251,15 @@ namespace TextRPG_sparta
                 return;
             }
 
-            switch (select)
+            if(select == 0)
             {
-                case 0:
-                    // town Scene으로 이동
-                    GameManager.Instance.PopScene();
-                    break;
-                case 1:
-                case 2:
-                case 3:
-                case 4:
-                case 5:
-                case 6:
-                    break;
-                default:
+                // town Scene으로 이동
+                GameManager.Instance.PopScene();
+            }
+            else
+            {
+                if (!GameManager.Instance.BuyItem(select))
                     HandleError.PrintError();
-                    break;
             }
         }
     }
