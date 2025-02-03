@@ -15,6 +15,9 @@ namespace TextRPG_sparta
         // 씬 매니저 초기화
         private SceneManager sceneManager = new SceneManager();
 
+
+        public Player? mainPlayer { get; set; }
+
         //========================================================================
         // 게임 매니저 전용
         //========================================================================
@@ -25,7 +28,6 @@ namespace TextRPG_sparta
                 sceneManager.Progress();
             }
         }
-
 
 
         //========================================================================

@@ -24,7 +24,7 @@ namespace TextRPG_sparta
         private int HP;
         private int Gold;
 
-        Player(string name, JOB job)
+        public Player(string name, JOB job)
         {
             this.name = name;
             this.job = job;
@@ -53,6 +53,18 @@ namespace TextRPG_sparta
                 default:
                     break;
             }
+        }
+
+        public void ShowInfo()
+        {
+            Console.WriteLine(
+                $"Lv. {level}      \n" +
+                $"{name} ( {job} )\n" +
+                $"공격력 : {STR}\n" +
+                $"방어력 : {DEF}\n" +
+                $"체 력 : {HP}\n" +
+                $"Gold : {Gold} G\n"
+                );
         }
     }
 }

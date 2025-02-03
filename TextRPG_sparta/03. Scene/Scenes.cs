@@ -60,14 +60,14 @@ namespace TextRPG_sparta
         {
             Console.WriteLine(
                 "상태 보기\n" +
-                "캐릭터의 정보가 표시됩니다.\n\n" +
-                "Lv. 01      \n" +
-                "Chad ( 전사 )\n" +
-                "공격력 : 10\n" +
-                "방어력 : 5\n" +
-                "체 력 : 100\n" +
-                "Gold : 1500 G\n\n" +
-                "0. 나가기\n\n" +
+                "캐릭터의 정보가 표시됩니다.\n\n"
+                );
+
+            if (GameManager.Instance.mainPlayer != null)
+                GameManager.Instance.mainPlayer.ShowInfo();
+
+            Console.WriteLine(
+                "\n0. 나가기\n\n" +
                 "원하시는 행동을 입력해주세요."
                 );
         }
