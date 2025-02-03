@@ -16,6 +16,12 @@ namespace TextRPG_sparta
     public interface IEquiptable
     {
         void Equip();
-        string GetWeaponInfo(); // 무기 정보 출력
+        string ShowInfo(); // 무기 정보 출력
+    }
+    public interface IStat
+    {
+        int HP { get; set; }      // 체력
+        int STR { get; set; }    // 공격력
+        int DEF { get; set; }     // 방어력
     }
 }

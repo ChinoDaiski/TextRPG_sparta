@@ -14,6 +14,7 @@ namespace TextRPG_sparta
 
         // 씬 매니저 초기화
         private SceneManager sceneManager = new SceneManager();
+        private Shop shop = new Shop();
 
 
         public Player? mainPlayer { get; set; }
@@ -27,6 +28,25 @@ namespace TextRPG_sparta
             {
                 sceneManager.Progress();
             }
+        }
+
+
+
+
+        //========================================================================
+        // shop 관련
+        //========================================================================
+        public void AddItem(Item item)
+        {
+            shop.AddItem(item);
+        }
+        public void ShowItems()
+        {
+            shop.ShowItems();
+        }
+        public void ShowItemsBuying()
+        {
+            shop.ShowItemsBuying();
         }
 
 

@@ -14,7 +14,7 @@ namespace TextRPG_sparta
         END
     }
 
-    internal class Player
+    internal class Player : IStat
     {
         private int level;
         private string? name;
@@ -22,7 +22,14 @@ namespace TextRPG_sparta
         private int STR;
         private int DEF;
         private int HP;
-        private int Gold;
+        
+        int IStat.HP { get => HP; set => HP = value; }
+        int IStat.STR { get => STR; set => STR = value; }
+        int IStat.DEF { get => DEF; set => DEF = value; }
+
+        public int Gold { get; set; }
+
+        public Inventory inventory { get; set; }
 
         public Player(string name, JOB job)
         {
@@ -53,6 +60,8 @@ namespace TextRPG_sparta
                 default:
                     break;
             }
+
+            inventory = new Inventory();
         }
 
         public void ShowInfo()
