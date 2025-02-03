@@ -4,7 +4,9 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            SceneManager sceneManager = new SceneManager();
+            sceneManager.PushScene(new TownScene());
+            sceneManager.Progress();
         }
     }
 }
