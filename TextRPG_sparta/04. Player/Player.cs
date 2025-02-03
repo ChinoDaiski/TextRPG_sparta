@@ -81,5 +81,10 @@ namespace TextRPG_sparta
                 $"Gold : {Gold} G\n"
                 );
         }
+
+        public void Rest()
+        {
+            HP = 100;
+        }
     }
 }
