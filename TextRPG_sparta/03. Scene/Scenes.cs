@@ -174,4 +174,96 @@ namespace TextRPG_sparta
             }
         }
     }
+    public class StoreScene : IScene
+    {
+        public void Render()
+        {
+            Console.WriteLine(
+                "상점\n" +
+                "필요한 아이템을 얻을 수 있는 상점입니다.\n\n" +
+                "[보유 골드]\n800 G\n\n" +
+                "[아이템 목록]\n" +
+                "- 수련자 갑옷    | 방어력 +5  | 수련에 도움을 주는 갑옷입니다.             |  1000 G\n" +
+                "- 무쇠갑옷      | 방어력 +9  | 무쇠로 만들어져 튼튼한 갑옷입니다.           |  구매완료\n" +
+                "- 스파르타의 갑옷 | 방어력 +15 | 스파르타의 전사들이 사용했다는 전설의 갑옷입니다.|  3500 G\n" +
+                "- 낡은 검      | 공격력 +2  | 쉽게 볼 수 있는 낡은 검 입니다.            |  600 G\n" +
+                "- 청동 도끼     | 공격력 +5  |  어디선가 사용됐던거 같은 도끼입니다.        |  1500 G\n" +
+                "- 스파르타의 창  | 공격력 +7  | 스파르타의 전사들이 사용했다는 전설의 창입니다. |  구매완료\n\n" +
+                "1. 아이템 구매\n" +
+                "0. 나가기\n\n" +
+                "원하시는 행동을 입력해주세요."
+                );
+        }
+        public void Update()
+        {
+            int select;
+            if (!int.TryParse(Console.ReadLine(), out select))
+            {
+                HandleError.PrintError();
+                return;
+            }
+
+            switch (select)
+            {
+                case 0:
+                    // town Scene으로 이동
+                    GameManager.Instance.PopScene();
+                    break;
+                case 1:
+                    // town Scene으로 이동
+                    GameManager.Instance.PushScene(new StoreBuyScene());
+                    break;
+                default:
+                    HandleError.PrintError();
+                    break;
+            }
+        }
+    }
+    public class StoreBuyScene : IScene
+    {
+        public void Render()
+        {
+            Console.WriteLine(
+                "상점\n" +
+                "필요한 아이템을 얻을 수 있는 상점입니다.\n\n" +
+                "[보유 골드]\n800 G\n\n" +
+                "[아이템 목록]\n" +
+                "- 1 수련자 갑옷    | 방어력 +5  | 수련에 도움을 주는 갑옷입니다.             |  1000 G\n" +
+                "- 2 무쇠갑옷      | 방어력 +9  | 무쇠로 만들어져 튼튼한 갑옷입니다.           |  구매완료\n" +
+                "- 3 스파르타의 갑옷 | 방어력 +15 | 스파르타의 전사들이 사용했다는 전설의 갑옷입니다.|  3500 G\n" +
+                "- 4 낡은 검      | 공격력 +2  | 쉽게 볼 수 있는 낡은 검 입니다.            |  600 G\n" +
+                "- 5 청동 도끼     | 공격력 +5  |  어디선가 사용됐던거 같은 도끼입니다.        |  1500 G\n" +
+                "- 6 스파르타의 창  | 공격력 +7  | 스파르타의 전사들이 사용했다는 전설의 창입니다. |  구매완료\n\n" +
+                "0. 나가기\n\n" +
+                "원하시는 행동을 입력해주세요."
+                );
+        }
+        public void Update()
+        {
+            int select;
+            if (!int.TryParse(Console.ReadLine(), out select))
+            {
+                HandleError.PrintError();
+                return;
+            }
+
+            switch (select)
+            {
+                case 0:
+                    // town Scene으로 이동
+                    GameManager.Instance.PopScene();
+                    break;
+                case 1:
+                case 2:
+                case 3:
+                case 4:
+                case 5:
+                case 6:
+                    break;
+                default:
+                    HandleError.PrintError();
+                    break;
+            }
+        }
+    }
 }
