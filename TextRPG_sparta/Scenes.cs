@@ -40,10 +40,10 @@ namespace TextRPG_sparta
             switch (select)
             {
                 case 1:
-                    SceneManager.Instance.PushScene(new StatusScene());
+                    GameManager.Instance.PushScene(new StatusScene());
                     break;
                 case 2:
-                    SceneManager.Instance.PushScene(new InventroyScene());
+                    GameManager.Instance.PushScene(new InventroyScene());
                     break;
                 case 3:
                     break;
@@ -85,7 +85,7 @@ namespace TextRPG_sparta
             {
                 case 0:
                     // town Scene으로 이동
-                    SceneManager.Instance.PopScene();
+                    GameManager.Instance.PopScene();
                     break;
                 default:
                     HandleError.PrintError();
@@ -121,11 +121,11 @@ namespace TextRPG_sparta
             {
                 case 0:
                     // town Scene으로 이동
-                    SceneManager.Instance.PopScene();
+                    GameManager.Instance.PopScene();
                     break;
                 case 1:
                     // Equipment Scene으로 이동
-                    SceneManager.Instance.PushScene(new EquipmentScene());
+                    GameManager.Instance.PushScene(new EquipmentScene());
                     break;
                 default:
                     HandleError.PrintError();
@@ -162,7 +162,7 @@ namespace TextRPG_sparta
             {
                 case 0:
                     // town Scene으로 이동
-                    SceneManager.Instance.PopScene();
+                    GameManager.Instance.PopScene();
                     break;
                 case 1:
                 case 2:

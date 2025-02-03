@@ -8,10 +8,6 @@ namespace TextRPG_sparta
 {
     internal class SceneManager
     {
-        private static readonly SceneManager instance = new SceneManager();
-        private SceneManager() { }
-        public static SceneManager Instance { get { return instance; } }
-
         private Stack<IScene> scenes = new Stack<IScene>();
         
         public void PushScene(IScene scene) // 씬 추가
@@ -36,7 +32,7 @@ namespace TextRPG_sparta
 
         public void Progress()
         {
-            while (scenes.Count > 0)
+            if (scenes.Count > 0)
             {
                 Console.Clear();
                 scenes.Peek().Render();

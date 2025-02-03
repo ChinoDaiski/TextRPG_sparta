@@ -12,4 +12,10 @@ namespace TextRPG_sparta
         void Update();  // 게임 로직 관련
 
     }
+
+    public interface IEquiptable
+    {
+        void Equip();
+        string GetWeaponInfo(); // 무기 정보 출력
+    }
 }
