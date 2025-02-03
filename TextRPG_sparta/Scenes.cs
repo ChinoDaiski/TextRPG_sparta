@@ -6,6 +6,15 @@ using System.Threading.Tasks;
 
 namespace TextRPG_sparta
 {
+    static class HandleError
+    {
+        public static void PrintError()
+        {
+            Console.WriteLine("잘못된 입력입니다");
+            Console.ReadKey();
+        }
+    }
+
     public class TownScene : IScene
     {
         public void Render()
@@ -24,25 +33,64 @@ namespace TextRPG_sparta
             int select;
             if (!int.TryParse(Console.ReadLine(), out select))
             {
-                Console.WriteLine("잘못된 입력입니다");
-                Console.ReadKey();
+                HandleError.PrintError();
+                return;
             }
 
             switch (select)
             {
                 case 1:
+                    SceneManager.Instance.PushScene(new StatusScene());
                     break;
                 case 2:
                     break;
                 case 3:
                     break;
                 default:
+                    HandleError.PrintError();
                     break;
             }
-
-            Console.Clear();
         }
 
     }
+    public class StatusScene : IScene
+    {
+        public void Render()
+        {
+            Console.WriteLine(
+                "상태 보기\n" +
+                "캐릭터의 정보가 표시됩니다.\n\n" +
+                "Lv. 01      \n" +
+                "Chad ( 전사 )\n" +
+                "공격력 : 10\n" +
+                "방어력 : 5\n" +
+                "체 력 : 100\n" +
+                "Gold : 1500 G\n\n" +
+                "0. 나가기\n\n" +
+                "원하시는 행동을 입력해주세요."
+                );
+        }
 
+        public void Update()
+        {
+            int select;
+            if (!int.TryParse(Console.ReadLine(), out select))
+            {
+                HandleError.PrintError();
+                return;
+            }
+
+            switch (select)
+            {
+                case 0:
+                    // town Scene으로 이동
+                    SceneManager.Instance.PopScene();
+                    break;
+                default:
+                    HandleError.PrintError();
+                    break;
+            }
+        }
+
+    }
 }

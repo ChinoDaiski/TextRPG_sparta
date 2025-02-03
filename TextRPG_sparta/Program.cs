@@ -4,9 +4,8 @@
     {
         static void Main(string[] args)
         {
-            SceneManager sceneManager = new SceneManager();
-            sceneManager.PushScene(new TownScene());
-            sceneManager.Progress();
+            SceneManager.Instance.PushScene(new TownScene());
+            SceneManager.Instance.Progress();
         }
     }
 }

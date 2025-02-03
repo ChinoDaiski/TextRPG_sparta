@@ -38,6 +38,7 @@ namespace TextRPG_sparta
         {
             while (scenes.Count > 0)
             {
+                Console.Clear();
                 scenes.Peek().Render();
                 scenes.Peek().Update();
             }
