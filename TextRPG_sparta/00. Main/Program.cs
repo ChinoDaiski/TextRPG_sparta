@@ -19,6 +19,8 @@
             GameManager.Instance.AddItem(new Item("청동 도끼       ", 1500, "어디선가 사용됐던 거 같은 도끼입니다.", 0, 5, 0));
             GameManager.Instance.AddItem(new Item("스파르타의 창   ", 3000, "스파르타의 전사들이 사용했다는 전설의 창입니다.", 0, 7, 0));
 
+            // 던전 난이도 추가
+            
 
             // 게임 시작
             GameManager.Instance.Run();

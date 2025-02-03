@@ -22,6 +22,8 @@ namespace TextRPG_sparta
         private int STR;
         private int DEF;
         private int HP;
+
+        public bool Dead { get; set; }
         
         int IStat.HP { get => HP; set => HP = value; }
         int IStat.STR { get => STR; set => STR = value; }
@@ -33,6 +35,8 @@ namespace TextRPG_sparta
 
         public Player(string name, JOB job)
         {
+            Dead = false;
+
             this.name = name;
             this.job = job;
             level = 1;
@@ -85,6 +89,24 @@ namespace TextRPG_sparta
         public void Rest()
         {
             HP = 100;
+        }
+
+        public void GetDamaged(int damage, out int before, out int after)
+        {
+            before = HP;
+            HP -= damage;
+            if( HP <= 0 )
+            {
+                Dead = true;
+                HP = 0;
+            }
+            after = HP;
+        }
+
+        public void Revive()
+        {
+            HP = 100;
+            Dead = false;
         }
     }
 }

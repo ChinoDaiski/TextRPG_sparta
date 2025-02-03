@@ -6,6 +6,14 @@ using System.Threading.Tasks;
 
 namespace TextRPG_sparta
 {
+    enum Difficulty
+    {
+        Easy = 0,
+        Medium,
+        Hard,
+        END
+    }
+
     internal class GameManager
     {
         private static readonly GameManager instance = new GameManager();
@@ -18,6 +26,14 @@ namespace TextRPG_sparta
 
 
         public Player? mainPlayer { get; set; }
+
+        // 던전 난이도 설정
+        public Dictionary<Difficulty, (int enemyStrength, int reward)> dungeonData = new()
+        {
+            { Difficulty.Easy, (10, 500)},
+            { Difficulty.Medium, (30, 1500)},
+            { Difficulty.Hard, (50, 3000)}
+        };
 
         //========================================================================
         // 게임 매니저 전용
