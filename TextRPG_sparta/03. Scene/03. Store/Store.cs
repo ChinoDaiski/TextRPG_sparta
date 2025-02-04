@@ -21,6 +21,7 @@ namespace TextRPG_sparta
 
             Console.WriteLine(
                 "\n1. 아이템 구매\n" +
+                "2. 아이템 판매\n" +
                 "0. 나가기\n\n" +
                 "원하시는 행동을 입력해주세요."
                 );
@@ -41,8 +42,10 @@ namespace TextRPG_sparta
                     GameManager.Instance.PopScene();
                     break;
                 case 1:
-                    // town Scene으로 이동
                     GameManager.Instance.PushScene(new StoreBuyScene());
+                    break;
+                case 2:
+                    GameManager.Instance.PushScene(new StoreSellScene());
                     break;
                 default:
                     GameManager.Instance.PrintError();

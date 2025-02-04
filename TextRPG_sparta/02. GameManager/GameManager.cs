@@ -25,7 +25,7 @@ namespace TextRPG_sparta
         private Shop shop = new Shop();
 
 
-        public Player? mainPlayer { get; set; }
+        public Player mainPlayer;
 
         // 던전 난이도 설정
         public Dictionary<Difficulty, (int enemyStrength, int reward)> dungeonData = new()
@@ -66,7 +66,11 @@ namespace TextRPG_sparta
         }
         public bool BuyItem(int index)
         {
-            return shop.BuyItem(mainPlayer, index);
+            return shop.BuyItem(ref mainPlayer, index);
+        }
+        public bool SellItem(int index)
+        {
+            return shop.SellItem(ref mainPlayer, index);
         }
 
         //========================================================================

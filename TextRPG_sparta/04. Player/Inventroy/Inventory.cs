@@ -10,6 +10,10 @@ namespace TextRPG_sparta
     internal class Inventory
     {
         private List<Item> items = new List<Item>();
+        public List<Item> Items
+        {
+            get { return items; }
+        }
 
         public void AddItem(Item item)
         {
