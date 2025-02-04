@@ -56,6 +56,7 @@ namespace TextRPG_sparta
             }
 
             info += Info;
+            info += $"\t| {Price} G";
 
             return info;
         }
