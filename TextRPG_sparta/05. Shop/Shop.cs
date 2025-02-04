@@ -78,12 +78,13 @@ namespace TextRPG_sparta
 
                 // 아이템 정보를 플레이어에서 제거, 골드 추가
                 player.inventory.RemoveItem(selectItem);
-                player.Gold += (int)(selectItem.Price * 0.85f); // 85%만 돌려받음
+                int earnGold = (int)(selectItem.Price * 0.85f);
+                player.Gold += earnGold; // 85%만 돌려받음
 
                 // 상점에 아이템 정보를 추가
                 ItemsForSale.Add(selectItem);
 
-                Console.WriteLine($"{selectItem.Name}을(를) 판매했습니다. + {selectItem.Price}G");
+                Console.WriteLine($"{selectItem.Name}을(를) 판매했습니다. + {earnGold}G");
                 return true;
             }
             else

@@ -41,7 +41,11 @@ namespace TextRPG_sparta
             else
             {
                 if (!GameManager.Instance.SellItem(select))
+                {
                     GameManager.Instance.PrintError();
+                    return;
+                }
+                Console.ReadKey();
             }
         }
     }
