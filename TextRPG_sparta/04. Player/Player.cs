@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace TextRPG_sparta
@@ -16,12 +17,12 @@ namespace TextRPG_sparta
 
     internal class Player : IStat
     {
-        private int level;
-        private string? name;
-        private JOB job;
-        private int STR;
-        private int DEF;
-        private int HP;
+        [JsonInclude] private int level;
+        [JsonInclude] private string? name;
+        [JsonInclude] private JOB job;
+        [JsonInclude] private int STR;
+        [JsonInclude] private int DEF;
+        [JsonInclude] private int HP;
 
         public bool Dead { get; set; }
         

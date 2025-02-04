@@ -3,16 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace TextRPG_sparta
 {
     internal class Inventory
     {
-        private List<Item> items = new List<Item>();
+        [JsonInclude] private List<Item> items = new List<Item>();
         public List<Item> Items
         {
             get { return items; }
+            set { items = value; }
         }
 
         public void AddItem(Item item)

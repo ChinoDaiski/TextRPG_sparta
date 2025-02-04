@@ -23,6 +23,7 @@ namespace TextRPG_sparta
         // 씬 매니저 초기화
         private SceneManager sceneManager = new SceneManager();
         private Shop shop = new Shop();
+        public Shop mainShop { get { return shop; } }
 
 
         public Player mainPlayer;
